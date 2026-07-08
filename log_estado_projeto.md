@@ -1,0 +1,12 @@
+## Estado Inicial — Antes da Aula 1
+- Projeto: TaskFlow
+- Status: Aguardando início
+- Servidor: Não configurado
+- Estrutura Gradle: Não criada
+- Servlets: Nenhum
+- Views JSP: Nenhuma
+- Model e Repository: Nenhum
+- Banco de Dados: Não configurado
+- Testes: Nenhum
+- Módulo Atual: Módulo 1 — Fundamentos e Ambiente
+- Próximas Etapas: Aula 1 apresentará o Jakarta EE e o ecossistema

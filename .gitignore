@@ -1,0 +1,25 @@
+# Gradle
+.gradle/
+build/
+out/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# GlassFish
+glassfish*/
+domains/
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
