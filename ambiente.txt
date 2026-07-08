@@ -1,0 +1,3 @@
+Java: openjdk 21.0.11 2026-04-21 LTS
+Gradle: Gradle 8.14.2
+Ambiente configurado em: 07/08/2026 00:39:32
