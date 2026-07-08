@@ -1,5 +1,7 @@
-## Aula 2: Configurando o ambiente de desenvolvimento no Windows 11
-- Objetivo: Instalar e verificar Java 21, Gradle e VS Code com extensões essenciais.
-- Código Adicionado: Nenhum código Java. Arquivo aula_02/exercicio_02.txt com verificações do ambiente.
-- Estado Funcional: ✅ Ambiente configurado. java --version, javac --version e gradle --version funcionando.
-- Próximas Etapas: Aula 3 criará a estrutura do projeto Gradle com as dependências do Jakarta EE 11.
+## Aula 3: Seu primeiro projeto Jakarta EE com Gradle
+- Objetivo: Criar a estrutura base do projeto Gradle com Jakarta EE 11.
+- Código Adicionado: settings.gradle, build.gradle, src/main/webapp/WEB-INF/web.xml,
+  src/main/webapp/index.html e toda a estrutura de diretórios do projeto.
+- Estado Funcional: ✅ gradle war gera build/libs/taskflow.war sem erros.
+- Próximas Etapas: Aula 4 instalará o GlassFish 7 e fará o deploy do taskflow.war,
+  tornando a aplicação acessível em http://localhost:8080/taskflow.
