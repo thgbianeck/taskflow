@@ -1,5 +1,5 @@
-## Aula 1: O que é Jakarta EE e como o ecossistema funciona
-- Objetivo: Compreender o ecossistema Jakarta EE e criar a estrutura inicial do repositório.
-- Código Adicionado: Pasta taskflow/ criada. Arquivo README.md com descrição do projeto.
-- Estado Funcional: ⏳ Sem código Java ainda. Repositório Git inicializado.
-- Próximas Etapas: Aula 2 instalará o Java 21, o Gradle e o VS Code com extensões essenciais.
+## Aula 2: Configurando o ambiente de desenvolvimento no Windows 11
+- Objetivo: Instalar e verificar Java 21, Gradle e VS Code com extensões essenciais.
+- Código Adicionado: Nenhum código Java. Arquivo aula_02/exercicio_02.txt com verificações do ambiente.
+- Estado Funcional: ✅ Ambiente configurado. java --version, javac --version e gradle --version funcionando.
+- Próximas Etapas: Aula 3 criará a estrutura do projeto Gradle com as dependências do Jakarta EE 11.
