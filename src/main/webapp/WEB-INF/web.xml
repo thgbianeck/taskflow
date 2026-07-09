@@ -1,22 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
-                             https://jakarta.ee/xml/ns/jakartaee/web-app_6_1.xsd"
-         version="6.1">
+         version="7.0">
 
-    <!--
-        display-name: o nome da aplicação exibido no console de administração
-        do GlassFish. Não afeta o funcionamento, mas ajuda na identificação.
-    -->
     <display-name>TaskFlow</display-name>
 
-    <!--
-        session-config: configura o comportamento das sessões HTTP.
-        session-timeout: define em minutos quanto tempo uma sessão de usuário
-        pode ficar inativa antes de ser encerrada automaticamente.
-        30 minutos é um valor padrão razoável para aplicações web.
-    -->
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>

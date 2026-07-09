@@ -1,7 +1,8 @@
-## Aula 3: Seu primeiro projeto Jakarta EE com Gradle
-- Objetivo: Criar a estrutura base do projeto Gradle com Jakarta EE 11.
-- Código Adicionado: settings.gradle, build.gradle, src/main/webapp/WEB-INF/web.xml,
-  src/main/webapp/index.html e toda a estrutura de diretórios do projeto.
-- Estado Funcional: ✅ gradle war gera build/libs/taskflow.war sem erros.
-- Próximas Etapas: Aula 4 instalará o GlassFish 7 e fará o deploy do taskflow.war,
-  tornando a aplicação acessível em http://localhost:8080/taskflow.
+## Aula 4: Entendendo o servidor de aplicações: GlassFish 7 
+- Objetivo: Instalar o GlassFish 7 e fazer o deploy do TaskFlow.
+- Código Adicionado: Nenhum código Java novo. Arquivo index.html atualizado no exercício.
+  GlassFish 7 instalado em C:\ferramentas\glassfish7\.
+- Estado Funcional: ✅ TaskFlow deployado e acessível em http://localhost:8080/taskflow.
+  Página index.html exibida corretamente no navegador.
+- Próximas Etapas: Aula 5 criará o primeiro Servlet com @WebServlet, tornando
+  a aplicação capaz de responder com conteúdo dinâmico gerado em Java.
