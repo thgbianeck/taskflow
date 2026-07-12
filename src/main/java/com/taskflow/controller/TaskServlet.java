@@ -52,6 +52,13 @@ public class TaskServlet extends HttpServlet {
                 break;
 
             case "listar":
+            case "detalhe":
+                // Lê o id da URL como String.
+                // Na Aula 11, converteremos para Long e buscaremos no TaskRepository.
+                String id = request.getParameter("id");
+                request.setAttribute("idSolicitado", id);
+                encaminhar(request, response, "/WEB-INF/views/task/detail.jsp");
+                break;
             default:
                 // FASE ATUAL: encaminha para a listagem sem dados reais.
                 // FASE AULA 11: chamará taskRepository.findAll() antes do forward.
