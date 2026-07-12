@@ -1,114 +1,40 @@
-// ============================================================
-// PLUGINS
-// ============================================================
-
-// O bloco 'plugins' declara quais plugins o Gradle deve carregar.
 plugins {
-
-    // O plugin 'java' adiciona suporte à compilação de código Java.
-    // Ele ensina o Gradle a compilar arquivos .java e a rodar testes.
     id 'java'
-
-    // O plugin 'war' adiciona suporte ao empacotamento de aplicações web.
-    // Ele ensina o Gradle a gerar um arquivo .war no formato correto
-    // para deploy em servidores de aplicações Jakarta EE.
     id 'war'
 }
 
-// ============================================================
-// CONFIGURAÇÕES DO PROJETO
-// ============================================================
-
-// Define o grupo do projeto, seguindo a convenção de domínio reverso.
-// Usado para identificar o projeto em repositórios de artefatos.
 group = 'com.taskflow'
-
-// Define a versão atual do projeto.
-// '1.0-SNAPSHOT' indica que é uma versão em desenvolvimento.
 version = '1.0-SNAPSHOT'
 
-// ============================================================
-// CONFIGURAÇÕES DO JAVA
-// ============================================================
-
-// O bloco 'java' configura como o código Java deve ser compilado.
 java {
-
-    // Define que o código-fonte usa recursos do Java 21.
-    // O compilador rejeitará recursos de versões mais recentes.
     sourceCompatibility = JavaVersion.VERSION_21
-
-    // Define que o bytecode gerado é compatível com a JVM do Java 21.
-    // Importante para garantir que o GlassFish execute o código corretamente.
     targetCompatibility = JavaVersion.VERSION_21
 }
 
-// ============================================================
-// REPOSITÓRIOS DE DEPENDÊNCIAS
-// ============================================================
-
-// O bloco 'repositories' diz ao Gradle onde buscar as dependências.
 repositories {
-
-    // mavenCentral() é o repositório central do Maven/Gradle.
-    // É de onde a grande maioria das bibliotecas Java é baixada.
-    // O Gradle vai até este repositório na internet para baixar os JARs
-    // declarados no bloco 'dependencies' abaixo.
     mavenCentral()
 }
 
-// ============================================================
-// DEPENDÊNCIAS DO PROJETO
-// ============================================================
-
-// O bloco 'dependencies' lista todas as bibliotecas externas que
-// o projeto precisa para compilar, executar e testar.
 dependencies {
-
-    // DEPENDÊNCIA PRINCIPAL: Jakarta EE 11 API
-    // Esta dependência fornece todas as interfaces e anotações do Jakarta EE:
-    // @WebServlet, HttpServlet, HttpServletRequest, HttpServletResponse, etc.
-    //
-    // ESCOPO 'compileOnly': esta dependência é necessária APENAS para
-    // compilar o código. Ela NÃO será incluída no arquivo WAR gerado.
-    // Por quê? Porque o GlassFish 7 já possui a implementação completa
-    // dessas APIs internamente. Incluir a API também no WAR causaria
-    // conflitos de classes duplicadas em tempo de execução.
     compileOnly 'jakarta.platform:jakarta.jakartaee-api:11.0.0'
-
-    // DEPENDÊNCIA DE TESTE: JUnit 5 (Jupiter)
-    // O JUnit 5 é o framework de testes que usaremos com a metodologia TDD.
-    //
-    // ESCOPO 'testImplementation': esta dependência é necessária apenas
-    // para compilar e executar os testes. Ela NUNCA entra no WAR de produção.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
-
-    // Motor de execução do JUnit 5.
-    // Necessário para que o Gradle consiga executar os testes JUnit 5.
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
+    testImplementation 'org.mockito:mockito-core:5.11.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.11.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testCompileOnly 'jakarta.platform:jakarta.jakartaee-api:11.0.0'
+    testRuntimeOnly 'org.glassfish:jakarta.faces:4.0.7'
+    testRuntimeOnly 'org.apache.tomcat.embed:tomcat-embed-core:10.1.20'
 }
 
-// ============================================================
-// CONFIGURAÇÕES DE TESTE
-// ============================================================
-
-// O bloco 'test' configura como o Gradle deve executar os testes.
 tasks.named('test') {
-
-    // Diz ao Gradle que os testes usam a plataforma JUnit 5 (Jupiter).
-    // Sem esta linha, o Gradle não encontraria os testes anotados com @Test.
     useJUnitPlatform()
+    testLogging {
+        events 'passed', 'failed', 'skipped'
+    }
 }
 
-// ============================================================
-// CONFIGURAÇÕES DO WAR
-// ============================================================
-
-// O bloco 'war' configura como o arquivo WAR deve ser gerado.
 war {
-
-    // Define o nome do arquivo WAR gerado.
-    // O resultado será: build/libs/taskflow.war
-    // Este é o arquivo que faremos deploy no GlassFish 7 na Aula 4.
     archiveFileName = 'taskflow.war'
 }
