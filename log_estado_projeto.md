@@ -1,18 +1,18 @@
-## Aula 6: Requisições e Respostas HTTP com Servlets e TDD com JUnit 5
-- Objetivo: Demonstrar leitura de parâmetros HTTP e introduzir TDD com JUnit 5 e Mockito.
+## Aula 8: Jakarta Server Pages: criando as Views com JSP {#aula-8-jakarta-server-pages-criando-as-views-com-jsp-1  data-source-line="780"}
+- Objetivo: Criar as páginas JSP que formarão a View do TaskFlow.
 - Código Adicionado:
-    build.gradle atualizado com JUnit 5 (junit-jupiter-api 5.10.2,
-    junit-jupiter-engine 5.10.2), Mockito (mockito-core 5.11.0,
-    mockito-junit-jupiter 5.11.0) e tomcat-embed-core para runtime dos testes.
-    src/main/java/com/taskflow/service/SaudacaoService.java — lógica pura testável.
-    src/main/java/com/taskflow/controller/SaudacaoServlet.java — @WebServlet("/saudacao").
-    src/test/java/com/taskflow/service/SaudacaoServiceTest.java — 5 testes JUnit 5.
-    src/test/java/com/taskflow/controller/SaudacaoServletTest.java — 5 testes com Mockito.
-    src/test/java/com/taskflow/service/CalculadoraTaxaTest.java — exercício TDD.
-    src/main/java/com/taskflow/service/CalculadoraTaxa.java — exercício TDD.
-    modulo_01_fundamentos/aula_06/exercicio_06.txt
-- Estado Funcional: ✅ /saudacao?nome=Bianeck exibe "Olá, Bianeck!".
-  10 testes passando: 5 no SaudacaoServiceTest, 5 no SaudacaoServletTest.
-  gradle clean war gera BUILD SUCCESSFUL.
-- Próximas Etapas: Aula 7 introduzirá a arquitetura MVC e refatorará a estrutura
-  de pacotes do TaskFlow em model/, repository/, controller/ e filter/.
+    src/main/webapp/WEB-INF/views/task/list.jsp — tabela de listagem com EL e estrutura HTML.
+    src/main/webapp/WEB-INF/views/task/form.jsp — formulário de criação com campos titulo,
+      descricao e status, usando ${param.*} para reexibição após erro.
+    src/main/webapp/WEB-INF/views/task/detail.jsp — página de detalhe (exercício).
+    src/main/java/com/taskflow/controller/TaskServlet.java — atualizado com forward()
+      para list.jsp e form.jsp, método auxiliar encaminhar(), roteamento por action.
+    modulo_02_essencial/aula_08/exercicio_08.txt
+- Estado Funcional: ✅ /tasks exibe list.jsp com mensagem de lista vazia.
+  /tasks?action=criar exibe form.jsp com o formulário de criação.
+  /tasks?action=detalhe exibe detail.jsp com campos vazios (Model ainda não existe).
+  /taskflow/WEB-INF/views/task/list.jsp retorna HTTP 403 (protegido corretamente).
+  gradle clean test war gera BUILD SUCCESSFUL com 13 testes passando.
+- Próximas Etapas: Aula 9 adicionará JSTL ao projeto, substituindo a linha
+  placeholder da tabela por <c:forEach> iterando sobre ${tasks}, e adicionando
+  <c:if> para exibição condicional da mensagem de lista vazia.
